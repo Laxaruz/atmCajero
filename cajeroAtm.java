@@ -64,7 +64,7 @@ public class cajeroAtm {
                 if (retiro <= 0 || retiro > saldo)
                 {
                     System.out.println("⚠ Monto inválido o Fondos insuficientes.");
-                    break;
+                    return;
                 }
                     else {
                         saldo -= retiro;
@@ -72,7 +72,7 @@ public class cajeroAtm {
                         recibo.append("Retiro -$" + retiro + "\n");
                         operacionExitosa = true ;
                     }
-                    break;
+                    return;
             case 3:
                 System.out.println("Elija método de deposito: \n (1) Deposito en cuenta propia \n (2) Deposito a otra cuenta: ");
                 int tipoDeposito = sc.nextInt();
@@ -82,7 +82,7 @@ public class cajeroAtm {
                     double deposito = sc.nextDouble();
                     if (deposito <= 0) {
                         System.out.println("Monto inválido. intente nuevamente.");
-                        break;
+                        return;
                     }
                     saldo += deposito; 
                     System.out.println("Has depositado con éxito " + deposito + " en tu cuenta, saldo actual: " + saldo);
@@ -96,7 +96,7 @@ public class cajeroAtm {
                     double transferencia = sc.nextDouble();
                     if (transferencia <= 0) {
                         System.out.println("Monto inválido. Intente nuevamente.");
-                        break;
+                        return;
                     }
                     System.out.println("Has transferido con éxito " + transferencia + " a la cuenta : " +cuentaDestino );
                     recibo.append("Transferencia a cuenta " + cuentaDestino + ": -$" + transferencia + "\n");
